@@ -1,6 +1,16 @@
-export default function VideoMenu() {
+import { Transition } from '@headlessui/react'
+
+interface VideoMenuProps {
+  show: boolean
+}
+export default function VideoMenu({ show }: VideoMenuProps) {
   return (
-    // <div></div>
-    <div className="h-72 w-96 rounded-xl bg-gray-800"></div>
+    <div
+      className={`h-0 w-96 overflow-hidden rounded-lg bg-gray-800 transition-all duration-500 ${
+        show ? 'h-[500px]' : ''
+      }`}
+    >
+      Oi
+    </div>
   )
 }

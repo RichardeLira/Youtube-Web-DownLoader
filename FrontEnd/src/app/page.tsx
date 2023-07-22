@@ -6,9 +6,11 @@ import { useState } from 'react'
 
 export default function Home() {
   const [videoLink, setVideoLink] = useState<string | null>()
+  const [hasVideoLink, setHasVideoLink] = useState<boolean>(false)
 
   function handleSearch(data: string) {
     setVideoLink(data)
+    setHasVideoLink(true)
   }
 
   return (
@@ -19,7 +21,7 @@ export default function Home() {
         <SearchForm onSearch={handleSearch} />
       </div>
 
-      {videoLink && <VideoMenu />}
+      <VideoMenu show={hasVideoLink} />
     </div>
   )
 }
