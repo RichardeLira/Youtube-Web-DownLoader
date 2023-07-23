@@ -60,7 +60,7 @@ export default function SearchForm({ onSearch }: SearchFormProps) {
       {errors.link ? (
         <p className="text-red-300">{errors.link.message}</p>
       ) : (
-        <p className="text-red-300 opacity-0">teste</p>
+        <p className="text-red-300 opacity-0">erro</p>
       )}
     </div>
   )

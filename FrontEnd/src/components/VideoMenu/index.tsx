@@ -1,12 +1,16 @@
-import Button from '../Button'
 import DownloadOptions from './DownloadOptions'
 import VideoDetails from './VideoDetails'
 
 interface VideoMenuProps {
   show: boolean
+  optionsList: {
+    original: string[]
+    only_audio: string[]
+    only_video: string[]
+  }
 }
 
-export default function VideoMenu({ show }: VideoMenuProps) {
+export default function VideoMenu({ show, optionsList }: VideoMenuProps) {
   return (
     <div
       className={`h-0 overflow-hidden rounded-lg bg-gray-800 p-8 opacity-0 transition-all duration-500 ${
@@ -16,26 +20,61 @@ export default function VideoMenu({ show }: VideoMenuProps) {
       <div className="flex flex-col gap-10">
         <VideoDetails />
 
-        <div className="flex items-center justify-between">
-          <div className="flex flex-col items-center gap-2">
+        <div className="relative grid flex-1 grid-cols-11 gap-2">
+          <div className="col-span-3 flex h-[217px] w-full flex-col items-center gap-2">
             <h3>Vídeo original</h3>
-            <DownloadOptions />
+            <div className="w-full overflow-y-auto px-2">
+              <DownloadOptions options={optionsList.original} />
+            </div>
           </div>
 
-          <div className="h-24 w-[2px] bg-gray-700"></div>
+          <div className="col-span-1 flex items-center justify-center">
+            <div className="h-full w-[2px] bg-gray-700"></div>
+          </div>
 
-          <div className="flex flex-col items-center gap-2">
+          <div className="col-span-3 flex h-[217px] w-full flex-col items-center gap-2">
             <h3>Apenas áudio</h3>
-            <DownloadOptions />
+            <div className="w-full overflow-y-auto px-2">
+              <DownloadOptions options={optionsList.only_audio} />
+            </div>
           </div>
 
-          <div className="h-24 w-[2px] bg-gray-700"></div>
+          <div className="col-span-1 flex items-center justify-center">
+            <div className="h-full w-[2px] bg-gray-700"></div>
+          </div>
+
+          <div className="col-span-3 flex h-[217px] w-full flex-col items-center gap-2">
+            <h3>Apenas vídeo</h3>
+            <div className="w-full overflow-y-auto px-2">
+              <DownloadOptions options={optionsList.only_video} />
+            </div>
+          </div>
+        </div>
+
+        {/* <div className="relative flex justify-between">
+          <div className="flex h-[217px] flex-col items-center gap-2 overflow-y-auto">
+            <h3>Vídeo original</h3>
+            <DownloadOptions options={optionsList.original} />
+          </div>
+
+          <div className="flex items-center justify-center">
+            <div className="h-full w-[2px] bg-gray-700"></div>
+          </div>
+
+          <div className="flex h-full flex-col items-center gap-2">
+            <h3>Apenas áudio</h3>
+            <DownloadOptions options={optionsList.only_audio} />
+          </div>
+
+          <div className="flex items-center justify-center">
+            <div className="h-full w-[2px] bg-gray-700"></div>
+          </div>
 
           <div className="flex flex-col items-center gap-2">
             <h3>Apenas vídeo</h3>
-            <DownloadOptions />
+            <DownloadOptions options={optionsList.only_video} />
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   )

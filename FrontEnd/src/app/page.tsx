@@ -5,12 +5,16 @@ import VideoMenu from '@/components/VideoMenu'
 import { useState } from 'react'
 
 export default function Home() {
-  const [videoLink, setVideoLink] = useState<string | null>()
   const [hasVideoLink, setHasVideoLink] = useState<boolean>(false)
+  const temp = {
+    original: ['720.mp4', '480.mp4', '360.mp4', '240.mp4', '120.mp4'],
+    only_audio: ['720.mp4', '480.mp4', '360.mp4', '240.mp4', '120.mp4'],
+    only_video: ['720.mp4', '480.mp4', '360.mp4'],
+  }
 
-  function handleSearch(data: string) {
-    setVideoLink(data)
+  function handleSearch(link: string) {
     setHasVideoLink(true)
+    console.log(link)
   }
 
   return (
@@ -21,7 +25,7 @@ export default function Home() {
         <SearchForm onSearch={handleSearch} />
       </div>
 
-      <VideoMenu show={hasVideoLink} />
+      <VideoMenu show={hasVideoLink} optionsList={temp} />
     </div>
   )
 }
