@@ -23,7 +23,7 @@ export default function VideoMenu({ show, optionsList }: VideoMenuProps) {
         <div className="relative grid flex-1 grid-cols-11 gap-2">
           <div className="col-span-3 flex h-[217px] w-full flex-col items-center gap-2">
             <h3>Vídeo original</h3>
-            <div className="w-full overflow-y-auto px-2">
+            <div className="w-full overflow-y-auto px-2 scrollbar-thin scrollbar-track-gray-700 scrollbar-thumb-gray-500">
               <DownloadOptions options={optionsList.original} />
             </div>
           </div>
@@ -34,7 +34,7 @@ export default function VideoMenu({ show, optionsList }: VideoMenuProps) {
 
           <div className="col-span-3 flex h-[217px] w-full flex-col items-center gap-2">
             <h3>Apenas áudio</h3>
-            <div className="w-full overflow-y-auto px-2">
+            <div className="w-full overflow-y-auto px-2 scrollbar-thin scrollbar-track-gray-700 scrollbar-thumb-gray-500">
               <DownloadOptions options={optionsList.only_audio} />
             </div>
           </div>
@@ -45,36 +45,11 @@ export default function VideoMenu({ show, optionsList }: VideoMenuProps) {
 
           <div className="col-span-3 flex h-[217px] w-full flex-col items-center gap-2">
             <h3>Apenas vídeo</h3>
-            <div className="w-full overflow-y-auto px-2">
+            <div className="w-full overflow-y-auto px-2 scrollbar-thin scrollbar-track-gray-700 scrollbar-thumb-gray-500">
               <DownloadOptions options={optionsList.only_video} />
             </div>
           </div>
         </div>
-
-        {/* <div className="relative flex justify-between">
-          <div className="flex h-[217px] flex-col items-center gap-2 overflow-y-auto">
-            <h3>Vídeo original</h3>
-            <DownloadOptions options={optionsList.original} />
-          </div>
-
-          <div className="flex items-center justify-center">
-            <div className="h-full w-[2px] bg-gray-700"></div>
-          </div>
-
-          <div className="flex h-full flex-col items-center gap-2">
-            <h3>Apenas áudio</h3>
-            <DownloadOptions options={optionsList.only_audio} />
-          </div>
-
-          <div className="flex items-center justify-center">
-            <div className="h-full w-[2px] bg-gray-700"></div>
-          </div>
-
-          <div className="flex flex-col items-center gap-2">
-            <h3>Apenas vídeo</h3>
-            <DownloadOptions options={optionsList.only_video} />
-          </div>
-        </div> */}
       </div>
     </div>
   )
