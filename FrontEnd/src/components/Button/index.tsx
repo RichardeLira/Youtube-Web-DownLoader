@@ -18,7 +18,7 @@ export default function Button({
 
   return (
     <button
-      className={`flex-1 rounded-lg px-5 py-2 ${className} ${
+      className={`flex-1 rounded-lg px-2 py-2 sm:px-5 ${className} ${
         variant === 'secondary' ? secondaryClasses : primaryClasses
       }`}
       onClick={onClick}

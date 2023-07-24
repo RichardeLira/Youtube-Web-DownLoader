@@ -34,17 +34,20 @@ export default function SearchForm({ onSearch }: SearchFormProps) {
   })
 
   return (
-    <div className="flex flex-col items-center gap-5">
-      <form onSubmit={handleSubmit(handleSearch)} className="flex gap-2">
-        <div className="flex w-96 items-center gap-2 rounded bg-gray-50 p-2">
-          <div className="">
+    <div className="flex w-full flex-col items-center gap-2 sm:gap-5">
+      <form
+        onSubmit={handleSubmit(handleSearch)}
+        className="flex w-full items-center justify-center gap-2"
+      >
+        <div className="flex w-72 items-center gap-2 rounded bg-gray-50 p-2 sm:w-96">
+          <div>
             <Search color="black" />
           </div>
           <input
             type="text"
             placeholder="Cole o link do vídeo aqui"
             {...register('link')}
-            className="flex-1 rounded border-none bg-gray-50 text-gray-900 outline-none"
+            className="flex-1 rounded border-none bg-gray-50 text-gray-900 outline-none placeholder:text-sm sm:placeholder:text-lg"
           />
         </div>
 
@@ -52,7 +55,7 @@ export default function SearchForm({ onSearch }: SearchFormProps) {
           type="submit"
           className="flex items-center justify-center gap-2 rounded bg-red-500 px-3 py-2 text-xl font-bold"
         >
-          Buscar
+          <span className="hidden sm:block">Buscar</span>
           <ArrowRight />
         </button>
       </form>

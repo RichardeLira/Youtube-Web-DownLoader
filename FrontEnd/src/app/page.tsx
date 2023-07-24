@@ -18,9 +18,11 @@ export default function Home() {
   }
 
   return (
-    <div className="flex h-screen flex-col items-center gap-8">
-      <div className="mt-40 flex flex-col items-center justify-center gap-12">
-        <h1 className="text-5xl font-bold">Baixe seus vídeos gratuitamente</h1>
+    <div className="flex h-screen flex-col items-center gap-4 p-4 sm:gap-8">
+      <div className="mt-10 flex w-full flex-col items-center justify-center gap-8 sm:mt-40 sm:gap-12">
+        <h1 className="flex text-center text-xl font-bold sm:text-4xl md:text-5xl">
+          Baixe seus vídeos gratuitamente
+        </h1>
 
         <SearchForm onSearch={handleSearch} />
       </div>

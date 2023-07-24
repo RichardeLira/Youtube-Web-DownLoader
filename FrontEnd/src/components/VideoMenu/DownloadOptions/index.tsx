@@ -13,25 +13,21 @@ export default function DownloadOptions({ options }: DownloadOptionsProps) {
       {options.length > 4 && !showMore
         ? options.slice(0, 3).map((option) => {
             return (
-              <li key={option} className="flex">
+              <li key={option} className="flex whitespace-nowrap">
                 <Button>{option}</Button>
               </li>
             )
           })
         : options.map((option) => {
             return (
-              <li key={option} className="flex">
+              <li key={option} className="flex whitespace-nowrap">
                 <Button>{option}</Button>
               </li>
             )
           })}
       {options.length > 4 && !showMore && (
-        <li>
-          <Button
-            variant="secondary"
-            className="text-[14px]"
-            onClick={() => setShowMore(true)}
-          >
+        <li className="flex whitespace-nowrap">
+          <Button variant="secondary" onClick={() => setShowMore(true)}>
             Mostrar mais
           </Button>
         </li>
