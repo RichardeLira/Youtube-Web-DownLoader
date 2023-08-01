@@ -5,24 +5,43 @@ import VideoMenu from '@/components/VideoMenu'
 import { api } from '@/lib/axios'
 import { useState } from 'react'
 
+interface DownloadOptions {
+  Itag: number
+  Format: string
+}
+
+interface OptionsSchema {
+  audioVideo: DownloadOptions[]
+  onlyVideo: DownloadOptions[]
+  onlyAudio: DownloadOptions[]
+}
+
 export default function Home() {
-  const [hasVideoLink, setHasVideoLink] = useState<boolean>(false)
-  const temp = {
-    original: ['720.mp4', '480.mp4', '360.mp4', '240.mp4', '120.mp4'],
-    only_audio: ['720.mp4', '480.mp4', '360.mp4', '240.mp4', '120.mp4'],
-    only_video: ['720.mp4', '480.mp4', '360.mp4'],
-  }
+  const [videoMetadata, setVideoMetadata] = useState<null>(null)
+  const [videoOptions, setVideoOptions] = useState<OptionsSchema | null>(null)
+  const [link, setLink] = useState<string>('')
+
+  const show = videoOptions !== null && videoMetadata !== null
 
   async function handleSearch(link: string) {
-    const metadata = await api.post('/metaData', { link })
+    const metadataPromise = api.post('/metaData', { link })
+    const optionsPromise = api.post('/formatsAvailable', { link })
 
-    const options = await api.post('/formatsAvailable', { link })
+    const [metadata, options] = await Promise.all([
+      metadataPromise,
+      optionsPromise,
+    ])
 
-    console.log(metadata)
-    console.log(options)
+    if (!metadata && !options) {
+      return
+    }
 
-    // setHasVideoLink(true)
-    // console.log(link)
+    console.log(metadata.data)
+    console.log(options.data)
+
+    setLink(link)
+    setVideoMetadata(metadata.data)
+    setVideoOptions(options.data)
   }
 
   return (
@@ -35,7 +54,12 @@ export default function Home() {
         <SearchForm onSearch={handleSearch} />
       </div>
 
-      <VideoMenu show={hasVideoLink} optionsList={temp} />
+      <VideoMenu
+        show={show}
+        optionsList={videoOptions}
+        metadata={videoMetadata}
+        link={link}
+      />
     </div>
   )
 }
