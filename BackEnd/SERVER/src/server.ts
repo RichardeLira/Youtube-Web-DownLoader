@@ -7,7 +7,7 @@ const app: FastifyInstance = fastify();
 
 // Cors Settings 
 app.register(cors, {
-  origin: 'http://127.0.0.1:5500',
+  origin: 'http://localhost:3000',
 });
 
 interface YoutubeDownloadBody {

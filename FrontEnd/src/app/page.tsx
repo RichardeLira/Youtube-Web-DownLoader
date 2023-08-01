@@ -2,7 +2,7 @@
 
 import SearchForm from '@/components/SearchForm'
 import VideoMenu from '@/components/VideoMenu'
-import axios from 'axios'
+import { api } from '@/lib/axios'
 import { useState } from 'react'
 
 export default function Home() {
@@ -14,10 +14,15 @@ export default function Home() {
   }
 
   async function handleSearch(link: string) {
-    const data = await axios.get('https://api.github.com/users/pedrogrigorio')
-    console.log(data)
-    setHasVideoLink(true)
-    console.log(link)
+    const metadata = await api.post('/metaData', { link })
+
+    const options = await api.post('/formatsAvailable', { link })
+
+    console.log(metadata)
+    console.log(options)
+
+    // setHasVideoLink(true)
+    // console.log(link)
   }
 
   return (
