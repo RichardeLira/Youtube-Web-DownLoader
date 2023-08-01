@@ -1,7 +1,14 @@
 import fastify, { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import ytdl from 'ytdl-core';
+import cors from '@fastify/cors'
+
 
 const app: FastifyInstance = fastify();
+
+// Cors Settings 
+app.register(cors, {
+  origin: 'http://127.0.0.1:5500',
+});
 
 interface YoutubeDownloadBody {
   link: string;
@@ -139,3 +146,5 @@ app.listen({
 }).then(() => {
     console.log("HTTP Server Ok");
 });
+
+
