@@ -2,6 +2,7 @@
 
 import SearchForm from '@/components/SearchForm'
 import VideoMenu from '@/components/VideoMenu'
+import axios from 'axios'
 import { useState } from 'react'
 
 export default function Home() {
@@ -12,7 +13,9 @@ export default function Home() {
     only_video: ['720.mp4', '480.mp4', '360.mp4'],
   }
 
-  function handleSearch(link: string) {
+  async function handleSearch(link: string) {
+    const data = await axios.get('https://api.github.com/users/pedrogrigorio')
+    console.log(data)
     setHasVideoLink(true)
     console.log(link)
   }
