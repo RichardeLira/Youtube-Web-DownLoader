@@ -22,10 +22,28 @@ export default function DownloadOptions({
     console.log(tag)
     console.log(link)
 
-    const response = await api.post('/ytDownload', {
-      link,
-      Itag: tag,
+    const response = await api.post(
+      '/ytDownload',
+      {
+        link,
+        Itag: tag,
+      },
+      {
+        responseType: 'blob',
+      },
+    )
+
+    const href = URL.createObjectURL(response.data)
+    const a = Object.assign(document.createElement('a'), {
+      href,
+      style: 'display:none',
+      download: response.headers['x-filename'],
     })
+    document.body.appendChild(a)
+
+    a.click()
+    URL.revokeObjectURL(href)
+    a.remove()
   }
 
   return (
