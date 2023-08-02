@@ -127,20 +127,9 @@ app.post('/ytDownload', async (request: FastifyRequest, reply: FastifyReply) => 
     const url: string = body.link
     const Itag: number = body.Itag
     const info = await ytdl.getInfo(url)
-    const videoTitle = info.videoDetails.title
-   
-    const videoReadableStream = ytdl(url, { filter: format => format.itag === Itag })
+    const format = ytdl.chooseFormat(info.formats, { filter: format => format.itag === Itag });
 
-    const formats = info.formats 
-    const desiredFormat = formats.find((format) => format.itag === Itag)
-    const videoContainer = desiredFormat?.container
-
-    // Define o cabeçalho de resposta antes de enviar os dados do vídeo
-    reply.header('Content-Type', `video/${videoContainer}`) // Ajuste o tipo de conteúdo de acordo com o formato de vídeo real
-    reply.header('X-Filename', `${videoTitle}.${videoContainer}`)
-    reply.header('Content-Disposition', `attachment; filename="${videoTitle}.${videoContainer}"`) // Ajuste o nome do arquivo de acordo com o título do vídeo
-
-    return videoReadableStream
+    reply.send(format.url)
 });
 
 app.listen({

@@ -35,7 +35,15 @@ export default function DownloadOptions({
     )
 
     const filename = response.headers['x-filename']
-    FileSaver.saveAs(response.data, filename)
+    const url = window.URL.createObjectURL(response.data)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = filename
+    a.style.display = 'none'
+    document.body.appendChild(a)
+    a.click()
+    window.URL.revokeObjectURL(url)
+    document.body.removeChild(a)
 
     // const href = URL.createObjectURL(response.data)
     // const a = Object.assign(document.createElement('a'), {
