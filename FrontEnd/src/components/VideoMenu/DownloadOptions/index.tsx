@@ -1,6 +1,7 @@
 import Button from '@/components/Button'
 import { api } from '@/lib/axios'
 import { useState } from 'react'
+import FileSaver from 'file-saver'
 
 interface DownloadOptions {
   Itag: number
@@ -33,17 +34,20 @@ export default function DownloadOptions({
       },
     )
 
-    const href = URL.createObjectURL(response.data)
-    const a = Object.assign(document.createElement('a'), {
-      href,
-      style: 'display:none',
-      download: response.headers['x-filename'],
-    })
-    document.body.appendChild(a)
+    const filename = response.headers['x-filename']
+    FileSaver.saveAs(response.data, filename)
 
-    a.click()
-    URL.revokeObjectURL(href)
-    a.remove()
+    // const href = URL.createObjectURL(response.data)
+    // const a = Object.assign(document.createElement('a'), {
+    //   href,
+    //   style: 'display:none',
+    //   download: response.headers['x-filename'],
+    // })
+    // document.body.appendChild(a)
+
+    // a.click()
+    // URL.revokeObjectURL(href)
+    // a.remove()
   }
 
   return (
