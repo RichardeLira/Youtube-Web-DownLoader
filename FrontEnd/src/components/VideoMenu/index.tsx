@@ -2,7 +2,7 @@ import DownloadOptions from './DownloadOptions'
 import VideoDetails from './VideoDetails'
 
 interface DownloadOptions {
-  Itag: number
+  link: string
   Format: string
 }
 
@@ -22,14 +22,12 @@ interface VideoMenuProps {
   show: boolean
   optionsList: Options | null
   metadata: Metadata | null
-  link: string
 }
 
 export default function VideoMenu({
   show,
   optionsList,
   metadata,
-  link,
 }: VideoMenuProps) {
   if (!optionsList || !metadata) {
     return null
@@ -53,7 +51,7 @@ export default function VideoMenu({
             <h3>Vídeo original</h3>
 
             <div className="w-full overflow-y-auto px-2 scrollbar-thin scrollbar-track-gray-700 scrollbar-thumb-gray-500">
-              <DownloadOptions options={optionsList.audioVideo} link={link} />
+              <DownloadOptions options={optionsList.audioVideo} />
             </div>
           </div>
 
@@ -64,7 +62,7 @@ export default function VideoMenu({
           <div className="col-span-3 flex h-full w-full flex-col items-center gap-2 sm:h-52">
             <h3 className="whitespace-nowrap">Apenas áudio</h3>
             <div className="w-full overflow-y-auto px-2 scrollbar-thin scrollbar-track-gray-700 scrollbar-thumb-gray-500">
-              <DownloadOptions options={optionsList.onlyAudio} link={link} />
+              <DownloadOptions options={optionsList.onlyAudio} />
             </div>
           </div>
 
@@ -75,7 +73,7 @@ export default function VideoMenu({
           <div className="col-span-3 flex h-full w-full flex-col items-center gap-2 sm:h-52">
             <h3>Apenas vídeo</h3>
             <div className="w-full overflow-y-auto px-2 scrollbar-thin scrollbar-track-gray-700 scrollbar-thumb-gray-500">
-              <DownloadOptions options={optionsList.onlyVideo} link={link} />
+              <DownloadOptions options={optionsList.onlyVideo} />
             </div>
           </div>
         </div>

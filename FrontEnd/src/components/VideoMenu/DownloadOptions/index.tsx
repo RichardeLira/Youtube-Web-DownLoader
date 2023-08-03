@@ -1,61 +1,25 @@
 import Button from '@/components/Button'
-import { api } from '@/lib/axios'
 import { useState } from 'react'
-import FileSaver from 'file-saver'
 
 interface DownloadOptions {
-  Itag: number
+  link: string
   Format: string
 }
 
 interface DownloadOptionsProps {
   options: DownloadOptions[]
-  link: string
 }
 
-export default function DownloadOptions({
-  options,
-  link,
-}: DownloadOptionsProps) {
+export default function DownloadOptions({ options }: DownloadOptionsProps) {
   const [showMore, setShowMore] = useState<boolean>(false)
 
-  async function handleChoise(tag: number) {
-    console.log(tag)
-    console.log(link)
+  function handleChoice(link: string) {
+    const linkDownload = document.createElement('a')
+    linkDownload.href = link
 
-    const response = await api.post(
-      '/ytDownload',
-      {
-        link,
-        Itag: tag,
-      },
-      {
-        responseType: 'blob',
-      },
-    )
-
-    const filename = response.headers['x-filename']
-    const url = window.URL.createObjectURL(response.data)
-    const a = document.createElement('a')
-    a.href = url
-    a.download = filename
-    a.style.display = 'none'
-    document.body.appendChild(a)
-    a.click()
-    window.URL.revokeObjectURL(url)
-    document.body.removeChild(a)
-
-    // const href = URL.createObjectURL(response.data)
-    // const a = Object.assign(document.createElement('a'), {
-    //   href,
-    //   style: 'display:none',
-    //   download: response.headers['x-filename'],
-    // })
-    // document.body.appendChild(a)
-
-    // a.click()
-    // URL.revokeObjectURL(href)
-    // a.remove()
+    document.body.appendChild(linkDownload)
+    linkDownload.click()
+    document.body.removeChild(linkDownload)
   }
 
   return (
@@ -63,8 +27,8 @@ export default function DownloadOptions({
       {options.length > 4 && !showMore
         ? options.slice(0, 3).map((option) => {
             return (
-              <li key={option.Itag} className="flex whitespace-nowrap">
-                <Button onClick={() => handleChoise(option.Itag)}>
+              <li key={option.Format} className="flex whitespace-nowrap">
+                <Button onClick={() => handleChoice(option.link)}>
                   {option.Format}
                 </Button>
               </li>
@@ -72,8 +36,8 @@ export default function DownloadOptions({
           })
         : options.map((option) => {
             return (
-              <li key={option.Itag} className="flex whitespace-nowrap">
-                <Button onClick={() => handleChoise(option.Itag)}>
+              <li key={option.Format} className="flex whitespace-nowrap">
+                <Button onClick={() => handleChoice(option.link)}>
                   {option.Format}
                 </Button>
               </li>

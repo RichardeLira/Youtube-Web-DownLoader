@@ -6,7 +6,7 @@ import { api } from '@/lib/axios'
 import { useState } from 'react'
 
 interface DownloadOptions {
-  Itag: number
+  link: string
   Format: string
 }
 
@@ -19,7 +19,6 @@ interface OptionsSchema {
 export default function Home() {
   const [videoMetadata, setVideoMetadata] = useState<null>(null)
   const [videoOptions, setVideoOptions] = useState<OptionsSchema | null>(null)
-  const [link, setLink] = useState<string>('')
 
   const show = videoOptions !== null && videoMetadata !== null
 
@@ -39,7 +38,6 @@ export default function Home() {
     console.log(metadata.data)
     console.log(options.data)
 
-    setLink(link)
     setVideoMetadata(metadata.data)
     setVideoOptions(options.data)
   }
@@ -58,7 +56,6 @@ export default function Home() {
         show={show}
         optionsList={videoOptions}
         metadata={videoMetadata}
-        link={link}
       />
     </div>
   )
