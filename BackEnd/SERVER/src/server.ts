@@ -39,25 +39,16 @@ app.get('/checkService', async (request: FastifyRequest, reply: FastifyReply) =>
     }
   });
   
-
-app.post('/validateURL', (request: FastifyRequest, reply: FastifyReply) => {
-
-    const body: YoutubeDownloadBody = request.body as YoutubeDownloadBody
-    const url: string = body.link
-
-    // Verifica se a URL é válida
-    if (!ytdl.validateURL(url)) {
-        reply.code(400).send({ 'error': 'Invalid YouTube URL' })
-        return
-    }
-
-    reply.code(200).send({ 'sucess': 'Valid YouTube URL' })
-})
-
 app.post('/metaData', async (request: FastifyRequest, reply: FastifyReply) => {
   try {
     const body: YoutubeDownloadBody = request.body as YoutubeDownloadBody
     const url: string = body.link
+
+     // Verifica se a URL é válida
+    if (!ytdl.validateURL(url)) {
+      reply.code(400).send({ 'error': 'Invalid YouTube URL' })
+      return
+    }
 
     // Get videdo information
     const info = await ytdl.getInfo(url)
