@@ -21,7 +21,7 @@ interface ContentDownloadBody {
 }
 
 interface dataFormat {
-    Itag: number;
+    link: string;
     Format: string;
   }
   
@@ -85,6 +85,7 @@ app.post('/formatsAvailable', async (request: FastifyRequest, reply: FastifyRepl
       const body: YoutubeDownloadBody = request.body as YoutubeDownloadBody;
       const url: string = body.link;
       const info = await ytdl.getInfo(url);
+      const title = info.videoDetails.title
       const formats = info.formats;
       const formattedFormats: {
         audioVideo: dataFormat[];
@@ -95,17 +96,19 @@ app.post('/formatsAvailable', async (request: FastifyRequest, reply: FastifyRepl
         onlyVideo:  [],
         onlyAudio:  [],
       };
+
+       
       
       for(let i = 0; i<formats.length; i++){
         const format = formats[i]
         if(format.audioQuality !== undefined && format.qualityLabel !== null ) {
-            formattedFormats.audioVideo.push({Itag:format.itag, Format:format.qualityLabel+"."+format.container})
+            formattedFormats.audioVideo.push({link:`${format.url}&title=${encodeURIComponent(title)}`, Format:format.qualityLabel+"."+format.container})
         }
         else if(format.audioQuality !== undefined && format.qualityLabel === null) {
-            formattedFormats.onlyAudio.push({Itag:format.itag, Format:format.container})
+            formattedFormats.onlyAudio.push({link:`${format.url}&title=${encodeURIComponent(title)}`, Format:format.container})
         }
         else {
-            formattedFormats.onlyVideo.push({Itag:format.itag, Format:format.qualityLabel+"."+format.container})
+            formattedFormats.onlyVideo.push({link:`${format.url}&title=${encodeURIComponent(title)}`, Format:format.qualityLabel+"."+format.container})
         }
       }
     
@@ -115,22 +118,6 @@ app.post('/formatsAvailable', async (request: FastifyRequest, reply: FastifyRepl
       return reply.status(500).send({ error: 'Ocorreu um erro ao obter as informações do vídeo.' });
     }
   });
-
-app.post('/ytDownload', async (request: FastifyRequest, reply: FastifyReply) => {
-    const body: ContentDownloadBody = request.body as ContentDownloadBody;
-
-    if (!body || !body.link) {
-        reply.code(400).send({ 'error': 'Invalid request body' });
-        return;
-    }
-    
-    const url: string = body.link
-    const Itag: number = body.Itag
-    const info = await ytdl.getInfo(url)
-    const format = ytdl.chooseFormat(info.formats, { filter: format => format.itag === Itag });
-
-    reply.send(format.url)
-});
 
 app.listen({
     port: 3333,
