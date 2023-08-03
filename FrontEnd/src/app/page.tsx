@@ -23,6 +23,8 @@ export default function Home() {
   const show = videoOptions !== null && videoMetadata !== null
 
   async function handleSearch(link: string) {
+    setVideoOptions(null)
+    setVideoMetadata(null)
     const metadataPromise = api.post('/metaData', { link })
     const optionsPromise = api.post('/formatsAvailable', { link })
 
