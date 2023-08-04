@@ -13,9 +13,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body className={`${roboto.variable} bg-gray-900 font-sans text-gray-50`}>
-        <div>
-          <main>{children}</main>
-        </div>
+        <main className="flex min-h-screen items-center justify-center overflow-y-auto">
+          {children}
+        </main>
       </body>
     </html>
   )

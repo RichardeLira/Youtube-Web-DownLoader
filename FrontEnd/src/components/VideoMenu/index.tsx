@@ -45,7 +45,7 @@ export default function VideoMenu({ optionsList, metadata }: VideoMenuProps) {
           thumbnail={metadata.thumbnail}
         />
 
-        <div className="flex justify-between gap-2 overflow-hidden sm:grid sm:grid-cols-11">
+        <div className="flex justify-between gap-2 overflow-hidden overflow-x-auto sm:grid sm:grid-cols-11">
           <div className="col-span-3 flex h-full w-full flex-col items-center gap-2 sm:h-52 ">
             <h3>Vídeo original</h3>
 

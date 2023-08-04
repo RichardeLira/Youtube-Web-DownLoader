@@ -48,7 +48,7 @@ export default function Home() {
   }
 
   return (
-    <div className="flex h-screen flex-col items-center justify-center gap-4 overflow-y-auto p-4 sm:gap-8">
+    <div className="flex w-full flex-col items-center justify-center gap-4 p-4 sm:gap-8">
       <div className="flex w-full flex-col items-center justify-center gap-8 sm:gap-12">
         <h1 className="flex text-center text-xl font-bold sm:text-4xl md:text-5xl">
           Baixe seus vídeos gratuitamente
@@ -59,7 +59,7 @@ export default function Home() {
 
       <div className="h-96 w-full max-w-[344px] sm:w-auto sm:max-w-none">
         <div
-          className={`transition-all duration-1000  ${
+          className={`transition-all duration-1000 ${
             show
               ? 'h-full w-full opacity-100 transition-all duration-1000'
               : 'h-0 w-full opacity-0'
