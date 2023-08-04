@@ -1,4 +1,5 @@
 import convertTime from '@/utils/convertTime'
+import Image from 'next/image'
 
 interface VideoDetailsProps {
   title: string
@@ -14,7 +15,13 @@ export default function VideoDetails({
   return (
     <div className="flex flex-col items-center justify-start gap-3 sm:flex-row">
       <div className="h-[68px] w-[120px] overflow-hidden rounded-lg bg-gray-700">
-        <img src={thumbnail} alt="" className="rounded-lg" />
+        <Image
+          src={thumbnail}
+          alt=""
+          width={168}
+          height={94}
+          className="rounded-lg"
+        />
       </div>
       <div className="flex flex-col items-center gap-2 sm:items-start">
         <h3 className="max-w-[412px] text-center sm:text-start">{title}</h3>

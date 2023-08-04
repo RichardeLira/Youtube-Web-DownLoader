@@ -7,7 +7,7 @@ const app: FastifyInstance = fastify();
 
 // Cors Settings 
 app.register(cors, {
-  origin: 'http://localhost:3000',
+  origin: '*',
   exposedHeaders: '*',
 });
 
