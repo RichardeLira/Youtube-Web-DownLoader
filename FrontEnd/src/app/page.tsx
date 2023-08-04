@@ -57,7 +57,7 @@ export default function Home() {
         <SearchForm onSearch={handleSearch} />
       </div>
 
-      <div className="h-[380px] w-full max-w-[344px] sm:w-auto sm:max-w-none">
+      <div className="h-96 w-full max-w-[344px] sm:w-auto sm:max-w-none">
         <div
           className={`transition-all duration-1000  ${
             show
