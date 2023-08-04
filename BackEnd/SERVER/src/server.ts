@@ -7,7 +7,7 @@ const app: FastifyInstance = fastify();
 
 // Cors Settings 
 app.register(cors, {
-  origin: '*',
+  origin: 'http://localhost:3000',
   exposedHeaders: '*',
 });
 
@@ -112,6 +112,7 @@ app.post('/formatsAvailable', async (request: FastifyRequest, reply: FastifyRepl
 
 app.listen({
     port: 3333,
+    host: '0.0.0.0',
 }).then(() => {
     console.log("HTTP Server Ok");
 });

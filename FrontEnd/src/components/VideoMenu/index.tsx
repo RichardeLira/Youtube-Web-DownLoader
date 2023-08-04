@@ -19,25 +19,24 @@ interface Metadata {
 }
 
 interface VideoMenuProps {
-  show: boolean
   optionsList: Options | null
   metadata: Metadata | null
 }
 
-export default function VideoMenu({
-  show,
-  optionsList,
-  metadata,
-}: VideoMenuProps) {
+/* <div
+      className={`h-0 overflow-hidden overflow-y-auto rounded-lg bg-gray-800 pb-2 pt-8 text-xs opacity-0 transition-all duration-1000 sm:px-4 sm:py-8 sm:text-sm md:p-8 ${
+        show ? 'h-[400px] opacity-100' : ''
+      }`}
+    > */
+
+export default function VideoMenu({ optionsList, metadata }: VideoMenuProps) {
   if (!optionsList || !metadata) {
     return null
   }
 
   return (
     <div
-      className={`h-0 overflow-hidden overflow-y-auto rounded-lg bg-gray-800 pb-2 pt-8 text-xs opacity-0 transition-all duration-500 sm:px-4 sm:py-8 sm:text-sm md:p-8 ${
-        show ? 'h-[400px] opacity-100' : ''
-      }`}
+      className={`h-full w-full rounded-lg bg-gray-800 pb-2 pt-8 text-xs sm:px-4 sm:py-8 sm:text-sm md:p-8`}
     >
       <div className="flex h-full flex-col gap-10 overflow-hidden">
         <VideoDetails

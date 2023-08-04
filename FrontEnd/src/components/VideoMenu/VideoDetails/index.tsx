@@ -24,7 +24,9 @@ export default function VideoDetails({
         />
       </div>
       <div className="flex flex-col items-center gap-2 sm:items-start">
-        <h3 className="max-w-[412px] text-center sm:text-start">{title}</h3>
+        <h3 className="max-w-[412px] px-2 text-center sm:text-start">
+          {title}
+        </h3>
         <p className="text-gray-200">Duração: {convertTime(+duration)}</p>
       </div>
     </div>
