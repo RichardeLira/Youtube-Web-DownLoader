@@ -47,8 +47,8 @@ export default function Home() {
   }
 
   return (
-    <div className="flex min-h-screen w-full flex-col">
-      <section className="flex h-full w-full flex-col items-center justify-center gap-4 bg-gray-900 px-4 py-6 sm:gap-8">
+    <div className="flex w-full flex-col">
+      <section className="flex w-full flex-col items-center justify-center gap-4 bg-gray-900 px-4 py-6 sm:gap-8">
         <div className="flex w-full flex-col items-center justify-center gap-8 sm:gap-12">
           <h1 className="flex text-center text-xl font-bold sm:text-4xl md:text-5xl">
             Baixe seus vídeos gratuitamente
@@ -72,7 +72,7 @@ export default function Home() {
 
       <div className="h-8 bg-gradient-to-b from-gray-900 to-gray-800" />
       <div className="flex flex-col items-center pt-10">
-        <section className="w-full px-4 pb-10 sm:w-[60vw]">
+        <section className="w-full max-w-[1440px] px-8 pb-10 sm:px-16">
           <div className="flex flex-col gap-2">
             <h2 className="text-lg font-bold sm:text-xl md:text-2xl">
               Melhor downloader de vídeos do Youtube 2023
@@ -88,7 +88,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="w-full px-4 pb-10 sm:w-[60vw]">
+        <section className="w-full max-w-[1440px] px-16 pb-10">
           <div className="flex flex-col gap-2">
             <h2 className="text-lg font-bold sm:text-xl md:text-2xl">
               Como baixar vídeos?
@@ -119,7 +119,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="w-full px-4 pb-10 sm:w-[60vw]">
+        <section className="w-full max-w-[1440px] px-16 pb-10">
           <div className="flex flex-col gap-2">
             <h2 className="w-full text-center text-lg font-bold sm:text-xl md:text-2xl">
               Perguntas frequentes
