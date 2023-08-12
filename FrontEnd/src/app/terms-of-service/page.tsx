@@ -1,14 +1,20 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Termos de Serviço - m2youtube',
+}
+
 export default function TermsOfService() {
   return (
     <div className="flex w-full justify-center py-16">
-      <div className="w-full max-w-[1440px] px-16">
+      <div className="w-full max-w-[1440px] px-8 sm:px-16">
         <h1 className="mb-4 text-xl font-bold sm:text-4xl">
           Termos de Serviço
         </h1>
         <h2 className="mb-4 font-semibold">
           <span>1. Termos</span>
         </h2>
-        <p className="mb-4">
+        <p className="mb-4 text-justify">
           <span>
             Ao acessar ao site
             <a href="m2youtube.com">m2youtube</a>, concorda em cumprir estes
@@ -23,7 +29,7 @@ export default function TermsOfService() {
         <h2 className="mb-4 font-semibold">
           <span>2. Uso de Licença</span>
         </h2>
-        <p className="mb-4">
+        <p className="mb-4 text-justify">
           <span>
             É concedida permissão para baixar temporariamente uma cópia dos
             materiais (informações ou software) no site m2youtube , apenas para
@@ -32,7 +38,7 @@ export default function TermsOfService() {
             você não pode:&nbsp;
           </span>
         </p>
-        <ol className="mb-4 list-decimal pl-8">
+        <ol className="mb-4 list-decimal pl-8 text-justify">
           <li>
             <span>modificar ou copiar os materiais;</span>
           </li>
@@ -61,7 +67,7 @@ export default function TermsOfService() {
             </span>
           </li>
         </ol>
-        <p className="mb-4">
+        <p className="mb-4 text-justify">
           <span>
             Esta licença será automaticamente rescindida se você violar alguma
             dessas restrições e poderá ser rescindida por m2youtube a qualquer
@@ -73,7 +79,7 @@ export default function TermsOfService() {
         <h2 className="mb-4 font-semibold">
           <span>3. Isenção de responsabilidade</span>
         </h2>
-        <ol className="mb-4 list-decimal pl-8">
+        <ol className="mb-4 list-decimal pl-8 text-justify">
           <li>
             <span>
               Os materiais no site da m2youtube são fornecidos &quot;como
@@ -96,7 +102,7 @@ export default function TermsOfService() {
         <h2 className="mb-4 font-semibold">
           <span>4. Limitações</span>
         </h2>
-        <p className="mb-4">
+        <p className="mb-4 text-justify">
           <span>
             Em nenhum caso o m2youtube ou seus fornecedores serão responsáveis
             por quaisquer danos (incluindo, sem limitação, danos por perda de
@@ -112,7 +118,7 @@ export default function TermsOfService() {
         <h2 className="mb-4 font-semibold">
           <span>5. Precisão dos materiais</span>
         </h2>
-        <p className="mb-4">
+        <p className="mb-4 text-justify">
           <span>
             Os materiais exibidos no site da m2youtube podem incluir erros
             técnicos, tipográficos ou fotográficos. m2youtube não garante que
@@ -125,7 +131,7 @@ export default function TermsOfService() {
         <h2 className="mb-4 font-semibold">
           <span>6. Links</span>
         </h2>
-        <p className="mb-4">
+        <p className="mb-4 text-justify">
           <span>
             O m2youtube não analisou todos os sites vinculados ao seu site e não
             é responsável pelo conteúdo de nenhum site vinculado. A inclusão de
@@ -139,7 +145,7 @@ export default function TermsOfService() {
         <h3 className="mb-4 font-semibold">
           <span>Modificações</span>
         </h3>
-        <p className="mb-4">
+        <p className="mb-4 text-justify">
           <span>
             O m2youtube pode revisar estes termos de serviço do site a qualquer
             momento, sem aviso prévio. Ao usar este site, você concorda em ficar
@@ -149,7 +155,7 @@ export default function TermsOfService() {
         <h3 className="mb-4 font-semibold">
           <span>Lei aplicável</span>
         </h3>
-        <p className="mb-4">
+        <p className="mb-4 text-justify">
           <span>
             Estes termos e condições são regidos e interpretados de acordo com
             as leis do m2youtube e você se submete irrevogavelmente à jurisdição

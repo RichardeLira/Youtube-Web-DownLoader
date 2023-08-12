@@ -7,7 +7,7 @@ import Footer from '@/components/layout/Footer'
 const roboto = Roboto({ subsets: ['latin'], variable: '--font-roboto' })
 
 export const metadata = {
-  title: 'Youtube Downloader',
+  title: 'Baixe seus vídeos gratuitamente - m2youtube',
   description: 'Baixe seus vídeos do YouTube gratuitamente.',
 }
 

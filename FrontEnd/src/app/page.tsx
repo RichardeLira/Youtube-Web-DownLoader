@@ -85,12 +85,12 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="w-full max-w-[1440px] px-16 pb-10">
+        <section className="w-full max-w-[1440px] px-8 pb-10 sm:px-16">
           <div className="flex flex-col gap-2">
             <h2 className="text-lg font-bold sm:text-xl md:text-2xl">
               Como baixar vídeos do YouTube
             </h2>
-            <ul>
+            <ul className="mb-2">
               <li>
                 <strong>1º - </strong>Acesse algum vídeo do YouTube e copie o
                 link.
@@ -106,17 +106,17 @@ export default function Home() {
                 <strong>4º - </strong>Escolha a opção e o download irá começar
                 automaticamente.
               </li>
-              <li className="pl-7">
-                Obs: alguns formatos podem encaminhar para um player de vídeo
-                direto, para baixar basta clicar nos três pontos no canto
-                inferior direito do vídeo e clicar em{' '}
-                <strong>&quot;Fazer o download&quot;</strong>.
-              </li>
             </ul>
+            <p>
+              Obs: alguns formatos podem encaminhar para um player de vídeo
+              direto, para baixar basta clicar nos três pontos no canto inferior
+              direito do vídeo e clicar em{' '}
+              <strong>&quot;Fazer o download&quot;</strong>.
+            </p>
           </div>
         </section>
 
-        <section className="w-full max-w-[1440px] px-16 pb-10">
+        <section className="w-full max-w-[1440px] px-8 pb-10 sm:px-16">
           <div className="flex flex-col gap-2">
             <h2 className="w-full text-center text-lg font-bold sm:text-xl md:text-2xl">
               Perguntas frequentes
