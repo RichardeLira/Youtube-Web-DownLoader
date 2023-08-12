@@ -1,7 +1,7 @@
 'use client'
 
-import SearchForm from '@/components/SearchForm'
-import VideoMenu from '@/components/VideoMenu'
+import SearchForm from '@/components/ui/SearchForm'
+import VideoMenu from '@/components/ui/VideoMenu'
 import { api } from '@/lib/axios'
 import { useState } from 'react'
 

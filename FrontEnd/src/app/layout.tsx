@@ -1,7 +1,8 @@
-import Navbar from '@/components/Navbar'
+import Navbar from '@/components/layout/Navbar'
 import './globals.css'
 import { Roboto_Flex as Roboto } from 'next/font/google'
 import { ReactNode } from 'react'
+import Footer from '@/components/layout/Footer'
 
 const roboto = Roboto({ subsets: ['latin'], variable: '--font-roboto' })
 
@@ -20,9 +21,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
         <main className="min-h-screen">{children}</main>
 
-        <footer className="bottom-0 flex w-full items-center justify-center border-t-2 border-t-gray-700 bg-gray-900 py-10">
-          © 2023 m2youtube
-        </footer>
+        <Footer />
       </body>
     </html>
   )
