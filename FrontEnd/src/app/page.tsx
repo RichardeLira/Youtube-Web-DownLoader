@@ -38,9 +38,6 @@ export default function Home() {
       return
     }
 
-    console.log(metadata.data)
-    console.log(options.data)
-
     setVideoMetadata(metadata.data)
     setVideoOptions(options.data)
     setShow(true)
@@ -91,7 +88,7 @@ export default function Home() {
         <section className="w-full max-w-[1440px] px-16 pb-10">
           <div className="flex flex-col gap-2">
             <h2 className="text-lg font-bold sm:text-xl md:text-2xl">
-              Como baixar vídeos?
+              Como baixar vídeos do YouTube
             </h2>
             <ul>
               <li>
@@ -168,6 +165,16 @@ export default function Home() {
                   de iniciar o download automaticamente. Neste caso, clique nos
                   três pontos no canto inferior direito do vídeo e, em seguida,
                   clique em &quot;Fazer Download&quot;.
+                </p>
+              </div>
+
+              <div className="flex flex-col pb-4">
+                <h3 className="text-base font-bold sm:text-lg md:text-xl">
+                  Como faço para baixar vídeos?
+                </h3>
+                <p className="text-justify">
+                  Basta colar o link do vídeo na barra de pesquisa, clicar em
+                  buscar e selecionar o formato de download.
                 </p>
               </div>
             </div>
